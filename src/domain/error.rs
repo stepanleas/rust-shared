@@ -10,4 +10,19 @@ pub enum DomainError {
 
     #[error("internal error")]
     InternalError { message: String },
+
+    #[error("{message}")]
+    CatalogDomainError { message: String },
+
+    #[error("{message}")]
+    OrderDomainError { message: String },
+
+    #[error("{message}")]
+    CustomerDomainError { message: String },
+
+    #[error("{message}")]
+    PaymentDomainError { message: String },
+
+    #[error("{message}")]
+    ShippingDomainError { message: String },
 }
