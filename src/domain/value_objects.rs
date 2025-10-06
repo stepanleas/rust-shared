@@ -1,4 +1,3 @@
-use crate::domain::error::DomainError;
 use bigdecimal::BigDecimal;
 use num_traits::FromPrimitive;
 use std::fmt;
@@ -20,10 +19,8 @@ impl Money {
         Self { amount: value }
     }
 
-    pub fn from_f64(value: f64) -> Result<Self, DomainError> {
+    pub fn from_f64(value: f64) -> Option<BigDecimal> {
         BigDecimal::from_f64(value)
-            .ok_or(DomainError::InvalidMoneyValue)
-            .map(Self::new)
     }
 
     pub fn value(self) -> BigDecimal {
