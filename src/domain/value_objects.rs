@@ -19,8 +19,11 @@ impl Money {
         Self { amount: value }
     }
 
-    pub fn from_f64(value: f64) -> Option<BigDecimal> {
-        BigDecimal::from_f64(value)
+    pub fn from_f64(value: f64) -> Result<Self, anyhow::Error> {
+        let amount =
+            BigDecimal::from_f64(value).ok_or_else(|| anyhow::Error::msg("invalid money value"))?;
+
+        Ok(Money { amount })
     }
 
     pub fn value(self) -> BigDecimal {

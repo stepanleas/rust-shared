@@ -6,5 +6,4 @@ edition = "2024"
 [dependencies]
 num-traits = "0.2.19"
 bigdecimal = "0.4.8"
-uuid = { version = "1.18.1", features = ["v4"] }
-thiserror = "2.0.17"
+anyhow = "1.0.100"
