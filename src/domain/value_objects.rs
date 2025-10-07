@@ -26,6 +26,10 @@ impl Money {
         Ok(Money { amount })
     }
 
+    pub fn is_greater_than_zero(&self) -> bool {
+        self.amount >= BigDecimal::from(0)
+    }
+
     pub fn value(self) -> BigDecimal {
         self.amount
     }
