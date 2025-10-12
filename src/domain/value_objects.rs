@@ -3,7 +3,7 @@ use num_traits::FromPrimitive;
 use std::fmt;
 use std::ops::{Add, Mul, Sub};
 
-#[derive(Debug, Clone, PartialEq)]
+#[derive(Debug, Clone, PartialEq, Default)]
 pub struct Money {
     amount: BigDecimal,
 }
