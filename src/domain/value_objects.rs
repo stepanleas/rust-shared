@@ -6,12 +6,87 @@ use uuid::Uuid;
 
 #[derive(Default)]
 pub struct OrderId(Uuid);
+
+impl OrderId {
+    pub fn new() -> Self {
+        Self(Uuid::new_v4())
+    }
+
+    pub fn from_uuid(uuid: Uuid) -> Self {
+        Self(uuid)
+    }
+
+    pub fn from_str(s: &str) -> Result<Self, uuid::Error> {
+        Ok(Self(Uuid::parse_str(s)?))
+    }
+
+    pub fn as_uuid(&self) -> &Uuid {
+        &self.0
+    }
+}
+
 #[derive(Default)]
 pub struct CustomerId(Uuid);
+
+impl CustomerId {
+    pub fn new() -> Self {
+        Self(Uuid::new_v4())
+    }
+
+    pub fn from_uuid(uuid: Uuid) -> Self {
+        Self(uuid)
+    }
+
+    pub fn from_str(s: &str) -> Result<Self, uuid::Error> {
+        Ok(Self(Uuid::parse_str(s)?))
+    }
+
+    pub fn as_uuid(&self) -> &Uuid {
+        &self.0
+    }
+}
+
 #[derive(Default)]
 pub struct ProductId(Uuid);
+
+impl ProductId {
+    pub fn new() -> Self {
+        Self(Uuid::new_v4())
+    }
+
+    pub fn from_uuid(uuid: Uuid) -> Self {
+        Self(uuid)
+    }
+
+    pub fn from_str(s: &str) -> Result<Self, uuid::Error> {
+        Ok(Self(Uuid::parse_str(s)?))
+    }
+
+    pub fn as_uuid(&self) -> &Uuid {
+        &self.0
+    }
+}
+
 #[derive(Default)]
 pub struct CategoryId(Uuid);
+
+impl CategoryId {
+    pub fn new() -> Self {
+        Self(Uuid::new_v4())
+    }
+
+    pub fn from_uuid(uuid: Uuid) -> Self {
+        Self(uuid)
+    }
+
+    pub fn from_str(s: &str) -> Result<Self, uuid::Error> {
+        Ok(Self(Uuid::parse_str(s)?))
+    }
+
+    pub fn as_uuid(&self) -> &Uuid {
+        &self.0
+    }
+}
 
 #[derive(Debug, Clone, PartialEq, Default)]
 pub struct Money {
