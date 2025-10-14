@@ -19,9 +19,11 @@ impl OrderId {
     pub fn from_str(s: &str) -> Result<Self, uuid::Error> {
         Ok(Self(Uuid::parse_str(s)?))
     }
+}
 
-    pub fn as_uuid(&self) -> &Uuid {
-        &self.0
+impl Into<Uuid> for OrderId {
+    fn into(self) -> Uuid {
+        self.0
     }
 }
 
@@ -46,6 +48,12 @@ impl CustomerId {
     }
 }
 
+impl Into<Uuid> for CustomerId {
+    fn into(self) -> Uuid {
+        self.0
+    }
+}
+
 #[derive(Debug, Clone, PartialEq, Default)]
 pub struct ProductId(Uuid);
 
@@ -67,6 +75,12 @@ impl ProductId {
     }
 }
 
+impl Into<Uuid> for ProductId {
+    fn into(self) -> Uuid {
+        self.0
+    }
+}
+
 #[derive(Debug, Clone, PartialEq, Default)]
 pub struct CategoryId(Uuid);
 
@@ -85,6 +99,12 @@ impl CategoryId {
 
     pub fn as_uuid(&self) -> &Uuid {
         &self.0
+    }
+}
+
+impl Into<Uuid> for CategoryId {
+    fn into(self) -> Uuid {
+        self.0
     }
 }
 
