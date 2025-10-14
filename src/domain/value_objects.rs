@@ -4,7 +4,7 @@ use std::fmt;
 use std::ops::{Add, Mul, Sub};
 use uuid::Uuid;
 
-#[derive(Default)]
+#[derive(Debug, Clone, PartialEq, Default)]
 pub struct OrderId(Uuid);
 
 impl OrderId {
@@ -25,7 +25,7 @@ impl OrderId {
     }
 }
 
-#[derive(Default)]
+#[derive(Debug, Clone, PartialEq, Default)]
 pub struct CustomerId(Uuid);
 
 impl CustomerId {
@@ -46,7 +46,7 @@ impl CustomerId {
     }
 }
 
-#[derive(Default)]
+#[derive(Debug, Clone, PartialEq, Default)]
 pub struct ProductId(Uuid);
 
 impl ProductId {
@@ -67,7 +67,7 @@ impl ProductId {
     }
 }
 
-#[derive(Default)]
+#[derive(Debug, Clone, PartialEq, Default)]
 pub struct CategoryId(Uuid);
 
 impl CategoryId {
