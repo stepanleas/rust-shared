@@ -4,9 +4,13 @@ use std::fmt;
 use std::ops::{Add, Mul, Sub};
 use uuid::Uuid;
 
+#[derive(Default)]
 pub struct OrderId(Uuid);
+#[derive(Default)]
 pub struct CustomerId(Uuid);
+#[derive(Default)]
 pub struct ProductId(Uuid);
+#[derive(Default)]
 pub struct CategoryId(Uuid);
 
 #[derive(Debug, Clone, PartialEq, Default)]
