@@ -2,6 +2,12 @@ use bigdecimal::BigDecimal;
 use num_traits::FromPrimitive;
 use std::fmt;
 use std::ops::{Add, Mul, Sub};
+use uuid::Uuid;
+
+pub struct OrderId(Uuid);
+pub struct CustomerId(Uuid);
+pub struct ProductId(Uuid);
+pub struct CategoryId(Uuid);
 
 #[derive(Debug, Clone, PartialEq, Default)]
 pub struct Money {
@@ -24,6 +30,10 @@ impl Money {
             BigDecimal::from_f64(value).ok_or_else(|| anyhow::Error::msg("invalid money value"))?;
 
         Ok(Money { amount })
+    }
+
+    pub fn zero() -> Self {
+        Money { amount: BigDecimal::from(0) }
     }
 
     pub fn is_greater_than_zero(&self) -> bool {
