@@ -19,6 +19,10 @@ impl OrderId {
     pub fn from_str(s: &str) -> Result<Self, uuid::Error> {
         Ok(Self(Uuid::parse_str(s)?))
     }
+
+    pub fn as_uuid(&self) -> &Uuid {
+        &self.0
+    }
 }
 
 impl Into<Uuid> for OrderId {
@@ -41,6 +45,10 @@ impl OrderItemId {
 
     pub fn from_str(s: &str) -> Result<Self, uuid::Error> {
         Ok(Self(Uuid::parse_str(s)?))
+    }
+
+    pub fn as_uuid(&self) -> &Uuid {
+        &self.0
     }
 }
 
