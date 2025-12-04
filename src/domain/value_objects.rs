@@ -1,5 +1,5 @@
 use bigdecimal::BigDecimal;
-use num_traits::FromPrimitive;
+use num_traits::{FromPrimitive, ToPrimitive};
 use std::fmt;
 use std::ops::{Add, Mul, Sub};
 use uuid::Uuid;
@@ -160,6 +160,14 @@ impl Money {
             BigDecimal::from_f64(value).ok_or_else(|| anyhow::Error::msg("invalid money value"))?;
 
         Ok(Money { amount })
+    }
+
+    pub fn as_f64(&self) -> Option<f64> {
+        self.amount.to_f64()
+    }
+
+    pub fn to_string(&self) -> String {
+        self.amount.to_string()
     }
 
     pub fn zero() -> Self {
